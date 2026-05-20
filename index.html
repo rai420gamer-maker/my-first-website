@@ -195,7 +195,6 @@ body{
 }
 
 /* Love Letter */
-/* Love Letter */
 .letter{
     padding:80px 20px;
     display:flex;
@@ -204,7 +203,7 @@ body{
 
 .letter-box{
     max-width:800px;
-    background:rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.4);
     padding:40px;
     border-radius:30px;
     backdrop-filter:blur(15px);
@@ -214,16 +213,16 @@ body{
     text-align:center;
 }
 
-/* ---> PASTE IT RIGHT HERE <--- */
-.letter-box p {
-    color: #333333; 
-}
-
 .letter-box h2{
     margin-bottom:20px;
     font-size:3rem;
     color:#ff2e73;
     font-family:'Great Vibes',cursive;
+}
+
+.letter-box p{
+    color: #4a3b43;
+    font-weight: 500;
 }
 
 /* Footer */
@@ -269,17 +268,14 @@ footer{
 </head>
 <body>
 
-<!-- Floating Hearts -->
 <div class="hearts"></div>
 
-<!-- Background Music -->
 <audio id="bgMusic" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
 </audio>
 
 <div class="music-note" onclick="toggleMusic()">🎵</div>
 
-<!-- Hero Section -->
 <section class="hero">
     <h1>To My Love Suhani ❤️</h1>
 
@@ -294,36 +290,34 @@ footer{
     </button>
 </section>
 
-<!-- Gallery -->
 <section class="gallery">
     <h2>Our Beautiful Memories 📸</h2>
 
     <div class="gallery-container">
 
         <div class="photo">
-            <img src="IMG_20260518_211926_454.jpg">
+            <img src="IMG_20260518_211926_454.jpg" onclick="openLightbox(this)" style="cursor: pointer;">
         </div>
 
         <div class="photo">
-           <img src="IMG_20260518_212005_224.jpg">
+           <img src="IMG_20260518_212005_224.jpg" onclick="openLightbox(this)" style="cursor: pointer;">
         </div>
 
         <div class="photo">
-          <img src="IMG_20260518_212713_488.jpg">
+          <img src="IMG_20260518_212713_488.jpg" onclick="openLightbox(this)" style="cursor: pointer;">
         </div>
 
         <div class="photo">
-          <img src="IMG_20260520_085244_495.jpg">
+          <img src="IMG_20260520_085244_495.jpg" onclick="openLightbox(this)" style="cursor: pointer;">
         </div>
             
         <div class="photo">
-            <img src="Screenshot_20260519_203712_Telegram.png">
+          <img src="Screenshot_20260519_203712_Telegram.png" onclick="openLightbox(this)" style="cursor: pointer;">
         </div>
 
     </div>
 </section>
 
-<!-- Countdown -->
 <section class="countdown">
     <h2>Time Since You Became Special ❤️</h2>
 
@@ -350,7 +344,6 @@ footer{
     </div>
 </section>
 
-<!-- Love Letter -->
 <section class="letter">
     <div class="letter-box">
 
@@ -363,7 +356,7 @@ footer{
             Every moment with you becomes a memory I never want to lose.  
             You are not just someone I love…  
             you are my peace, my happiness, my favorite person, and my heart. ❤️
-            i just dont know how much i want to be your my love🫂.
+            i just dont know how much i want to be your my love 🫂.
             <br><br>
             No matter what happens in life,  
             I just want you beside me forever 🌸
@@ -375,6 +368,11 @@ footer{
 <footer>
     Made with endless love by Rohit ❤️
 </footer>
+
+<div id="lightbox" onclick="closeLightbox()" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; cursor: pointer;">
+    <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold;">&times;</span>
+    <img id="lightbox-img" src="" style="max-width: 95%; max-height: 90%; object-fit: contain; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);">
+</div>
 
 <script>
 
@@ -434,6 +432,18 @@ setInterval(() => {
     document.getElementById("seconds").innerHTML = seconds;
 
 },1000);
+
+/* Pop-up Lightbox Logic */
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    lightboxImg.src = imgElement.src;
+    lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
 
 </script>
 
