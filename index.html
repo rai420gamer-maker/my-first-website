@@ -1,12 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>To My Love Suhani ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5,#fff0f7);
+    color:#fff;
+}
+
+/* Floating Hearts */
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff4f8b;
+    animation:float 10s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:0.8;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Hero Section */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    position:relative;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-family:'Great Vibes',cursive;
+    color:#ff2e73;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff7ca8;
+    }
+    to{
+        text-shadow:0 0 30px #ff2e73,0 0 60px #ff9ec2;
+    }
+}
+
+.hero p{
+    margin-top:20px;
+    max-width:700px;
+    font-size:1.2rem;
+    color:#ffffff;
+    background:rgba(255,255,255,0.15);
+    padding:15px 25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+/* Love Button */
+.love-btn{
+    margin-top:35px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#ff2e73;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(255,46,115,0.5);
+}
+
+.love-btn:hover{
+    transform:scale(1.1);
+    background:#ff0f63;
+}
+
+/* Gallery */
+.gallery{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.gallery h2{
+    font-size:3rem;
+    margin-bottom:40px;
+    color:#ff2e73;
+    font-family:'Great Vibes',cursive;
+}
+
+.gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.photo{
+    height:320px;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(10px);
+    border:2px solid rgba(255,255,255,0.3);
+    transition:0.4s;
+}
+
+.photo:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 40px rgba(255,46,115,0.3);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Countdown */
+.countdown{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.countdown h2{
+    font-size:3rem;
+    margin-bottom:30px;
+    color:#ff2e73;
+    font-family:'Great Vibes',cursive;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.time-box{
+    background:rgba(255,255,255,0.2);
+    padding:25px;
+    border-radius:20px;
+    min-width:120px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 10px 30px rgba(255,46,115,0.2);
+}
+
+.time-box h3{
+    font-size:2.5rem;
+    color:#ff2e73;
+}
+
+.time-box span{
+    color:white;
+}
+
+/* Love Letter */
+.letter{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+.letter-box{
+    max-width:800px;
+    background:rgba(255,255,255,0.2);
+    padding:40px;
+    border-radius:30px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px rgba(255,46,115,0.2);
+    line-height:1.9;
+    font-size:1.1rem;
+    text-align:center;
+}
+
+.letter-box h2{
+    margin-bottom:20px;
+    font-size:3rem;
+    color:#ff2e73;
+    font-family:'Great Vibes',cursive;
+}
+
+/* Footer */
+footer{
+    padding:40px;
+    text-align:center;
+    color:#ff2e73;
+    font-weight:600;
+    font-size:1.2rem;
+}
+
+/* Music */
+.music-note{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#ff2e73;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,46,115,0.5);
+    z-index:1000;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .gallery h2,
+    .countdown h2,
+    .letter-box h2{
+        font-size:2.5rem;
+    }
+}
+</style>
 </head>
 <body>
-    <h1>Welcome to My First Website!</h1>
-    <p>This website is now live on Netlify!</p>
+
+<!-- Floating Hearts -->
+<div class="hearts"></div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-note" onclick="toggleMusic()">🎵</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>To My Love Suhani ❤️</h1>
+
+    <p>
+        Every moment with you feels magical.  
+        You are the most beautiful part of my life.  
+        This little website is just a small memory of my love for you 🌸
+    </p>
+
+    <button class="love-btn" onclick="showLove()">
+        Click For Surprise 💖
+    </button>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+    <h2>Our Beautiful Memories 📸</h2>
+
+    <div class="gallery-container">
+
+        <!-- Replace these with your photos later -->
+
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop" alt="">
+        </div>
+
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop" alt="">
+        </div>
+
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1000&auto=format&fit=crop" alt="">
+        </div>
+
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop" alt="">
+        </div>
+
+    </div>
+</section>
+
+<!-- Countdown -->
+<section class="countdown">
+    <h2>Time Since You Became Special ❤️</h2>
+
+    <div class="timer">
+        <div class="time-box">
+            <h3 id="days">0</h3>
+            <span>Days</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="hours">0</h3>
+            <span>Hours</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="minutes">0</h3>
+            <span>Minutes</span>
+        </div>
+
+        <div class="time-box">
+            <h3 id="seconds">0</h3>
+            <span>Seconds</span>
+        </div>
+    </div>
+</section>
+
+<!-- Love Letter -->
+<section class="letter">
+    <div class="letter-box">
+
+        <h2>My Love Letter 💌</h2>
+
+        <p>
+            Suhani,  
+            I don't know if words are enough to explain how much you mean to me.  
+            Every smile of yours makes my day brighter.  
+            Every moment with you becomes a memory I never want to lose.  
+            You are not just someone I love…  
+            you are my peace, my happiness, my favorite person, and my heart. ❤️
+            <br><br>
+            No matter what happens in life,  
+            I just want you beside me forever 🌸
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    Made with endless love by Rohit ❤️
+</footer>
+
+<script>
+
+/* Floating Hearts */
+const heartsContainer = document.querySelector('.hearts');
+
+function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '💖';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+    heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+}
+
+setInterval(createHeart,300);
+
+/* Music */
+const music = document.getElementById("bgMusic");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+/* Surprise Button */
+function showLove(){
+    alert("Suhani ❤️ You are the best thing that ever happened to me 🌸");
+}
+
+/* Countdown Timer */
+const startDate = new Date("2025-01-01T00:00:00").getTime();
+
+setInterval(() => {
+
+    const now = new Date().getTime();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+},1000);
+
+</script>
+
 </body>
 </html>
